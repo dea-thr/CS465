@@ -1,3 +1,4 @@
+require('./app_server/models/db');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/dev', require('./app_server/routes/dev'));
 
 // Routes
 app.use('/', indexRouter);

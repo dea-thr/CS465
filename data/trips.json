@@ -1,17 +1,32 @@
 [
   {
+    "code": "GR001",
     "name": "Gale Reef",
+    "length": "7 nights",
+    "start": "2025-11-01T00:00:00.000Z",
+    "resort": "Embudu Village",
+    "perPerson": "$1,799",
     "image": "/images/reef1.jpg",
-    "description": "Gale Reef — JSON-driven trip rendered via HBS."
+    "description": "Warm water, great vis, colorful hard coral—perfect for intermediate divers."
   },
   {
+    "code": "DR002",
     "name": "Dawson’s Reef",
+    "length": "5 nights",
+    "start": "2025-12-15T00:00:00.000Z",
+    "resort": "Dawson Lodge",
+    "perPerson": "$1,299",
     "image": "/images/reef2.jpg",
-    "description": "Dawson’s Reef — JSON-driven trip rendered via HBS."
+    "description": "Gentle currents with abundant reef fish and occasional turtles."
   },
   {
-    "name": "Molokini Crater",
+    "code": "NR003",
+    "name": "North Reef",
+    "length": "10 nights",
+    "start": "2026-01-20T00:00:00.000Z",
+    "resort": "North Point Resort",
+    "perPerson": "$2,499",
     "image": "/images/reef3.jpg",
-    "description": "Molokini Crater — JSON-driven trip rendered via HBS."
+    "description": "Larger pelagics and healthy soft corals—advanced but rewarding."
   }
 ]

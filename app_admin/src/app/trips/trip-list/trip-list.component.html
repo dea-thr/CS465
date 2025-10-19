@@ -1,0 +1,28 @@
+<div class="container py-3">
+  <h2>Trips</h2>
+  <div *ngIf="loading">Loading...</div>
+
+  <div *ngIf="!loading && trips.length === 0">No trips found.</div>
+
+  <div class="row row-cols-1 row-cols-md-2 g-3" *ngIf="!loading">
+    <div class="col" *ngFor="let trip of trips">
+      <div class="card h-100 shadow-sm">
+        <img [src]="trip.image || '/images/reef1.jpg'" class="card-img-top" alt="trip image" />
+        <div class="card-body">
+          <h5 class="card-title">{{ trip.name }}</h5>
+          <p class="card-text">
+            <strong>Code:</strong> {{ trip.code }}<br />
+            <strong>Resort:</strong> {{ trip.resort }}<br />
+            <strong>Start:</strong> {{ trip.start | date:'mediumDate' }}<br />
+            <strong>Length:</strong> {{ trip.length }}<br />
+            <strong>Per Person:</strong> {{ trip.perPerson }}
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <a class="btn btn-sm btn-outline-primary" [routerLink]="['/trips', trip.code]">Edit</a>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteTrip(trip.code)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

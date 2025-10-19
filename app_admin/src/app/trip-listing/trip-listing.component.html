@@ -1,0 +1,23 @@
+<h2>Trips</h2>
+<div class="actions">
+  <a routerLink="/trips/new"><button class="primary">Add Trip</button></a>
+</div>
+<div *ngIf="loading">Loading…</div>
+<div *ngIf="!loading && trips.length===0">No trips found.</div>
+<div *ngIf="!loading && trips.length>0" class="grid">
+  <div class="card" *ngFor="let trip of trips">
+    <img [src]="imgSrc(trip)" alt="trip image">
+    <div class="body">
+      <div class="title">{{ trip.name }}</div>
+      <div class="meta"><b>Code:</b> {{ trip.code }}</div>
+      <div class="meta"><b>Resort:</b> {{ trip.resort }}</div>
+      <div class="meta"><b>Start:</b> {{ trip.start | date:'MMM d, y' }}</div>
+      <div class="meta"><b>Length:</b> {{ trip.length }} nights</div>
+      <div class="meta"><b>Per Person:</b> {{ trip.perPerson | currency:'USD' }}</div>
+      <div class="actions">
+        <a [routerLink]="['/trips', tripId(trip)]"><button class="primary">Edit</button></a>
+        <button class="danger" (click)="delete(tripId(trip))">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,11 @@
+
 require('./app_server/models/db');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var cors = require('cors');
+
 var logger = require('morgan');
 var hbs = require('hbs');
 
@@ -10,6 +13,11 @@ var indexRouter  = require('./app_server/routes/index');
 var travelRouter = require('./app_server/routes/traveler');
 
 var app = express();
+app.use(cors({
+  origin: 'http://localhost:4200',
+  methods: ['GET','POST','PUT','DELETE','PATCH','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization']
+}));
 
 // Use app_server/views and HBS
 app.set('views', path.join(__dirname, 'app_server', 'views'));
